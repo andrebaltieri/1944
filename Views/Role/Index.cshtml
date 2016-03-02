@@ -1,0 +1,15 @@
+@model IEnumerable<Guardian.Models.Role>
+@{
+    ViewData["Title"] = "Perfis de Acesso";
+}
+
+<br>
+<br>
+<br>
+<br>
+
+<ul>
+    @foreach(var role in Model){
+        <li>@role.Name</li>
+    }
+</ul>
