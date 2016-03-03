@@ -17,17 +17,17 @@ namespace Guardian.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            // optionsBuilder.UseInMemoryDatabase();
+            optionsBuilder.UseInMemoryDatabase();
             
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
-            var configuration = builder.Build();
- 
-            var sqlConnectionString = 
-               configuration["DataAccessPostgreSqlProvider:ConnectionString"];
- 
-            optionsBuilder.UseNpgsql(sqlConnectionString);
+            // var builder = new ConfigurationBuilder()
+            //     .AddJsonFile("config.json")
+            //     .AddEnvironmentVariables();
+            // var configuration = builder.Build();
+            // 
+            // var sqlConnectionString = 
+            //     configuration["DataAccessPostgreSqlProvider:ConnectionString"];
+            // 
+            // optionsBuilder.UseNpgsql(sqlConnectionString);
 
         }
     }

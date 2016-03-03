@@ -35,13 +35,13 @@ namespace Guardian
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddEntityFramework()
-                .AddNpgsql()
-                .AddDbContext<AppDbContext>();
-                
             // services.AddEntityFramework()
-            //     .AddInMemoryDatabase()
-            //     .AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase());
+            //     .AddNpgsql()
+            //     .AddDbContext<AppDbContext>();
+                
+            services.AddEntityFramework()
+                .AddInMemoryDatabase()
+                .AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase());
                 
             // services.AddEntityFramework()
             //     .AddSqlite()

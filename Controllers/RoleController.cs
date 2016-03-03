@@ -10,16 +10,30 @@ namespace Guardian.Controllers
         private AppDbContext _db;
 
         public RoleController(AppDbContext context)
-        {            
+        {
             _db = context;
         }
 
         public IActionResult Index()
         {
-            _db.Roles.Add(new Role{ Name="Teste" });
+            return View(_db.Roles);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Role role)
+        {
+            if (!ModelState.IsValid)
+                return View(role);
+                
+            _db.Roles.Add(role);
             _db.SaveChanges();
             
-            return View(_db.Roles);
+            return RedirectToAction("Index");
         }
     }
 }

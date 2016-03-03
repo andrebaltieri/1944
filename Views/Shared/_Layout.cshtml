@@ -3,9 +3,10 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - teste</title>
+        <title>@ViewData["Title"] - Guardian</title>
 
-        <link rel="stylesheet" href="http://bootswatch.com/lumen/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/assets/css/styles-1.0.0.css">
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,24 +18,28 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a asp-controller="Home" asp-action="Index" class="navbar-brand">teste</a>
+                    <a asp-controller="Home" asp-action="Index" class="navbar-brand">Guardian</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-controller="Role" asp-action="Index">Perfis</a></li>
+                        <li><a asp-controller="Application" asp-action="Index">Aplicações</a></li>
+                        <li><a asp-controller="User" asp-action="Index">Usuários</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="container body-content">
+            <br><br><br><br>
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; 2016 - teste</p>
+                <p>&copy; 2016 - Guardian</p>
             </footer>
         </div>
+
+        <script src="~/assets/js/scripts-1.0.0.js"></script>
         @RenderSection("scripts", required: false)
     </body>
 </html>
