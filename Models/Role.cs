@@ -6,7 +6,7 @@ namespace Guardian.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [StringLength(50, ErrorMessage = "Este campo deve conter até 50 caracteres")]
         public string Name { get; set; }
 

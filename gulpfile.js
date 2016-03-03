@@ -14,11 +14,11 @@ var paths = {
     },
     scripts: {
         src: [
-            'bower_components/jquery/dist/jquery.js',
+            'custom_components/js/jquery.js',
             'bower_components/bootstrap/dist/js/bootstrap.js',
-            'bower_components/jquery-validation/dist/jquery.validate.js',
-            'custom_components/js/jquery.validate.unobtrusive.js',
-            'custom_components/js/additional-methods.min.js'
+            'custom_components/js/jquery.validate.js',
+            'custom_components/js/additional-methods.min.js',
+            'custom_components/js/jquery.validate.unobtrusive.js'      
         ],
         dest: 'wwwroot/assets/js/',
         file: 'scripts-1.0.0.js'

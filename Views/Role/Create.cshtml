@@ -9,6 +9,7 @@
         <label for="name" class="col-sm-2 control-label">Nome</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" asp-for="Name" placeholder="Nome do Perfil">
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
     </div>
     <div class="clearfix"></div>
