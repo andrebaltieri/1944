@@ -19,9 +19,9 @@
                 <td class="text-center">@role.Name</td>
                 <td class="text-center">
                     <div class="btn-group">
-                        <a class="btn btn-sm btn-default" asp-controller="Role" asp-action="Index" title="Detalhes"><i class="fa fa-list-alt"></i></a>
-                        <a class="btn btn-sm btn-info" asp-controller="Role" asp-action="Index" title="Editar"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-sm btn-danger" asp-controller="Role" asp-action="Index" title="Excluir"><i class="fa fa-remove"></i></a>
+                        <a class="btn btn-sm btn-default" asp-controller="Role" asp-action="Details" asp-route-id="@role.Id" title="Detalhes"><i class="fa fa-list-alt"></i></a>
+                        <a class="btn btn-sm btn-info" asp-controller="Role" asp-action="Edit" asp-route-id="@role.Id" title="Editar"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-sm btn-danger" asp-controller="Role" asp-action="Delete" asp-route-id="@role.Id" title="Excluir"><i class="fa fa-remove"></i></a>
                     </div>
                 </td>
             </tr>
