@@ -1,15 +1,17 @@
-@model Guardian.Models.Role
+@model Guardian.Models.Application
 
 @{
-    ViewData["Title"] = "Criação de Perfil";
+    ViewData["Title"] = "Edição";
 }
 
+<h2>@ViewData["Title"]</h2>
 
-<form asp-action="Create">
+<form asp-action="Edit">
     <div class="form-horizontal">
-        <h4>@ViewData["Title"]</h4>
+        <h4>Perfil</h4>
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -26,5 +28,11 @@
 </form>
 
 <div>
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="Index">Voltar para Lista</a>
 </div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
