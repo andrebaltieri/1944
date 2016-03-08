@@ -26,116 +26,77 @@ namespace Guardian.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Role role)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Role role)
         {
-            if (!ModelState.IsValid)
-                return View(role);
-                
-            _db.Roles.Add(role);
-            _db.SaveChanges();
-            
-            return RedirectToAction("Index");
+           if (ModelState.IsValid)
+           {
+               _db.Roles.Add(role);
+               await _db.SaveChangesAsync();
+               return RedirectToAction("Index");
+           }
+           
+           return View(role);
         }
         
-                //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.Role.ToListAsync());
-        //}
+        public async Task<IActionResult> Details(int? id)
+        {
+           if (id == null)
+               return HttpNotFound();
 
-        //// GET: Roles/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
+           Role role = await _db.Roles.SingleAsync(m => m.Id == id);
+           if (role == null)
+               return HttpNotFound();
 
-        //    Role role = await _context.Role.SingleAsync(m => m.Id == id);
-        //    if (role == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
+           return View(role);
+        }
+        
+        public async Task<IActionResult> Edit(int? id)
+        {
+           if (id == null)
+               return HttpNotFound();
 
-        //    return View(role);
-        //}
+           Role role = await _db.Roles.SingleAsync(m => m.Id == id);
+           if (role == null)
+               return HttpNotFound();
 
-        //// GET: Roles/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
+           return View(role);
+        }
 
-        //// POST: Roles/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(Role role)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Role.Add(role);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(role);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Role role)
+        {
+           if (ModelState.IsValid)
+           {
+               _db.Update(role);
+               await _db.SaveChangesAsync();
+               return RedirectToAction("Index");
+           }
+           return View(role);
+        }
+        
+        [ActionName("Delete")]
+        public async Task<IActionResult> Delete(int? id)
+        {
+           if (id == null)
+               return HttpNotFound();
 
-        //// GET: Roles/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
+           Role role = await _db.Roles.SingleAsync(m => m.Id == id);
+           if (role == null)
+               return HttpNotFound();
 
-        //    Role role = await _context.Role.SingleAsync(m => m.Id == id);
-        //    if (role == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(role);
-        //}
-
-        //// POST: Roles/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(Role role)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Update(role);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(role);
-        //}
-
-        //// GET: Roles/Delete/5
-        //[ActionName("Delete")]
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-        //    Role role = await _context.Role.SingleAsync(m => m.Id == id);
-        //    if (role == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-        //    return View(role);
-        //}
-
-        //// POST: Roles/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    Role role = await _context.Role.SingleAsync(m => m.Id == id);
-        //    _context.Role.Remove(role);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction("Index");
-        //}
+           return View(role);
+        }
+        
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+           Role role = await _db.Roles.SingleAsync(m => m.Id == id);
+           _db.Roles.Remove(role);
+           await _db.SaveChangesAsync();
+           return RedirectToAction("Index");
+        }
     }
 }
