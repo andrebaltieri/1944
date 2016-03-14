@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TodoCore.Data;
+using Microsoft.Data.Entity;
 
 namespace TodoCore
 {
@@ -30,9 +31,14 @@ namespace TodoCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            // services.AddEntityFramework()
+            //     .AddNpgsql()
+            //     .AddDbContext<AppDataContext>();
+
             services.AddEntityFramework()
-                .AddNpgsql()
-                .AddDbContext<AppDataContext>();
+                .AddInMemoryDatabase()
+                .AddDbContext<AppDataContext>(options => options.UseInMemoryDatabase());
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
