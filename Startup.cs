@@ -4,10 +4,9 @@ using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Guardian.Data;
-using Microsoft.Data.Entity;
+using TodoCore.Data;
 
-namespace Guardian
+namespace TodoCore
 {
     public class Startup
     {
@@ -15,10 +14,9 @@ namespace Guardian
 
         public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
-            // Set up configuration sources.
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                .AddJsonFile("Config/settings.json")
+                .AddJsonFile($"Config/settings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsDevelopment())
             {
@@ -27,26 +25,14 @@ namespace Guardian
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            // Configuration["Data:DefaultConnection:ConnectionString"] = $@"Data Source={appEnv.ApplicationBasePath}/guardian.db";
-            // Configuration["Data:DefaultConnection:ConnectionString"] = "User ID=root;Password=andrebaltieri;Host=localhost;Port=5432;Database=guardian;";            
-
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            // services.AddEntityFramework()
-            //     .AddNpgsql()
-            //     .AddDbContext<AppDbContext>();
-                
             services.AddEntityFramework()
-                .AddInMemoryDatabase()
-                .AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase());
-                
-            // services.AddEntityFramework()
-            //     .AddSqlite()
-            //     .AddDbContext<AppDbContext>(options =>
-            //         options.UseSqlite(Configuration["Data:DefaultConnection:ConnectionString"]));
+                .AddNpgsql()
+                .AddDbContext<AppDataContext>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -62,7 +48,7 @@ namespace Guardian
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-            }            
+            }
 
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
             app.UseStaticFiles();

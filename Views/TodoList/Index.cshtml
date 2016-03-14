@@ -1,0 +1,34 @@
+@model IEnumerable<TodoCore.Models.TodoList>
+@{
+    ViewData["Title"] = "Listas de Tarefas";
+}
+
+@section topmenu{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="TodoList" asp-action="Create"><i class="fa fa-plus"></i>&nbsp; NOVA LISTA</a></li>
+    </ul>
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">Lista</th>
+            <th class="text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model){
+            <tr>
+                <td class="text-center">@item.Title (@item.Todos.Count)</td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-sm btn-default" asp-controller="TodoList" asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fa fa-list-alt"></i></a>
+                        <a class="btn btn-sm btn-info" asp-controller="TodoList" asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-sm btn-danger" asp-controller="TodoList" asp-action="Delete" asp-route-id="@item.Id" title="Excluir"><i class="fa fa-remove"></i></a>
+                        <a class="btn btn-sm btn-success" asp-controller="Todo" asp-action="Index" asp-route-id="@item.Id" title="Itens"><i class="fa fa-bars"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

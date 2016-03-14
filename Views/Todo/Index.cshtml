@@ -1,0 +1,46 @@
+@model IEnumerable<TodoCore.Models.TodoItem>
+@{
+    ViewData["Title"] = "Tarefas";
+}
+
+@section topmenu{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="Todo" asp-action="Create" asp-route-id="@ViewBag.Id"><i class="fa fa-plus"></i>&nbsp; NOVA TAREFA</a></li>
+    </ul>
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">Concluído</th>
+            <th class="text-center">Tarefa</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model){
+            <tr>
+                <td class="text-center">
+                    @if(item.Done) {
+                        <p class="text-success"><i class="fa fa-check"></i></p>
+                    } else {
+                        <p><i class="fa fa-minus"></i></p>
+                    }
+                </td>
+                <td class="text-center">
+                   @if(item.Done) {
+                        <s>@item.Title</s>
+                    } else {
+                        <span>@item.Title</span>
+                    }
+                </td>
+                <td class="text-center">
+                    <div class="btn-group">                        
+                        <a class="btn btn-sm btn-info" asp-controller="Todo" asp-action="MarkAsDone" asp-route-id="@item.Id" title="Excluir"><i class="fa fa-thumbs-up"></i></a>
+                        <a class="btn btn-sm btn-danger" asp-controller="Todo" asp-action="Delete" asp-route-id="@item.Id" title="Excluir"><i class="fa fa-remove"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

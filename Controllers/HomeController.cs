@@ -1,9 +1,6 @@
 using Microsoft.AspNet.Mvc;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Threading;
 
-namespace Guardian.Controllers
+namespace TodoCore.Controllers
 {
     public class HomeController : Controller
     {
