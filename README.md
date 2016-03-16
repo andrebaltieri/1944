@@ -2,23 +2,65 @@
 Neste treinamento veremos como criar uma aplicação Web com ASP.NET Core que roda no Windows, Mac e Linux, utilizando o Entity Framework 7 e Postgre
 
 ### Conteúdo Programático ###
-* Introdução
-* Mudanças do ASP.NET
-* Mudanças do EF
-* CoreCLR VS Full Framework
-* Configurando o Projeto
-* Iniciando a aplicação (Startup.cs)
-* dnvm, dnu e dnx
-* Configurando Log e variáveis de ambiente
-* Criando o modelo
-* Adicionando Entity
-* Utilizando Migrations
-* Criando os Controllers
-* Criando as Views
-* Utilizando TagHelpers
-* Utilizando ViewComponents
-* Trabalhando com Identity
+* Introdução e Agenda
+* Instalação
+ * ASP.NET
+ * dnvm
+* Configurando o Ambiente
+ * dnvm list
+ * dnvm upgrade
+ * dnvm upgrade -u
+ * dnvm install
+ * dnvm install -r
+ * dnvm use
+ * Runtimes
+ * NodejS
+ * NPM
+  * gulp
+  * bower
+  * yeoman
+  * generator-aspnet
+* Iniciando o projeto
+ * Environment Variables
+ * Iniciando com Yeoman
+ * Entendendo o project.json
+ * Startup.cs
+ * Criando o HomeControlle
+ * Criando a View inicial
+ * Comandos Básicos
+  * dnu restore
+  * dnx web
+* Iniciando o Frontend
+ * Entendendo o wwwroot
+ * Gerenciando os Node Modules
+ * Instalando pacotes com Bower
+* Automatizando as Tarefas com Gulp
+* Layout padrão
+ * ViewStart e ViewImports
+* Trabalhando com Entity Framework
+ * Criando os Models
+ * Criando o Data Context
+ * Adicionando uso do EF no Startup
+ * Trabalhando com InMemory Storage
+ * Trabalhando com Postgree
+* Migrations
+ * Criando uma Migration
+ * Atualizando o banco
+* Criando o Todo App
+ * Listando as Listas de Tarefas
+ * Criando uma nova lista
+ * Entendendo o ASP.NET Tag Helper
+ * Editando um lista
+ * Excluindo uma lista
+ * Entendendo View Components
+ * Listando as tarefas de uma lista
+ * Criando uma nova tarefa
+ * Marcando a tarefa como finalizada
+ * Excluindo a tarefa
+* Melhorando suporte Mobile
 * Publicando a aplicação
+
+
 
 ### Assista este treinamento ao vivo dia 12/03/2016 às 09:00 ###
 Este treinamento é exclusivo para assinantes do site
