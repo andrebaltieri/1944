@@ -60,12 +60,6 @@ Neste treinamento veremos como criar uma aplicação Web com ASP.NET Core que ro
 * Melhorando suporte Mobile
 * Publicando a aplicação
 
-
-
-### Assista este treinamento ao vivo dia 12/03/2016 às 09:00 ###
-Este treinamento é exclusivo para assinantes do site
-* http://treinamentos.andrebaltieri.net/#/agenda
-
 ### Assine o Site ###
 Faça este e outros treinamentos por apenas R$ 59,90 mensais! Cancele quando quiser e ainda desfrute de treinamentos mensais online, ao vivo e de graça!
 
