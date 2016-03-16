@@ -1,5 +1,5 @@
-## 1944 - CRIANDO UM CONTROLE DE USUÁRIOS COM ASP.NET CORE, EF7 e POSTGRE ##
-Neste treinamento veremos como criar uma aplicação Web com ASP.NET Core que roda no Windows, Mac e Linux, utilizando o Entity Framework 7 e Postgre
+## 1944 - CRIANDO UM TODOAPP COM ASP.NET MVC, EF7 E POSTGRE NO MAC ##
+Neste treinamento vamos criar uma aplicação completa utilizando ASP.NET Core que roda no Windows, Mac e Linux, utilizando o Entity Framework 7 e Postgre
 
 ### Conteúdo Programático ###
 * Introdução e Agenda
