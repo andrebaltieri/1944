@@ -1,8 +1,6 @@
 ## 1944 - CRIANDO UM TODOAPP COM ASP.NET MVC, EF7 E POSTGRE NO MAC ##
 Neste treinamento vamos criar uma aplicação completa utilizando ASP.NET Core que roda no Windows, Mac e Linux, utilizando o Entity Framework 7 e Postgre
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JEnCOsgEJtw" frameborder="0" allowfullscreen></iframe>
-
 ### Conteúdo Programático ###
 * Introdução e Agenda
 * Instalação
